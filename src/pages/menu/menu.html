@@ -1,0 +1,48 @@
+<!--
+  Generated template for the MenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+   <ion-title>Food Menu</ion-title>
+</ion-header>
+<ion-content class="body">
+   <ion-item class = "info">
+
+      <h4>Welcome {{email}}</h4>
+      <button item-end ion-button color="Red" outline (click) = "Back()"> Logout</button>
+   </ion-item>
+   <ion-item>
+      <div div class="cart">
+         <h1>Total: ${{totalAmt || 0}}</h1>
+         </div>
+         <button item-end id="cartButton" ion-button color="dark" (click)="payment()">Cart</button>
+         <ion-icon  item-end name="cart"></ion-icon>
+         
+      
+   </ion-item>
+   <ion-list>
+      <ion-item-sliding *ngFor="let data of menuList$ | async">
+         <ion-item class = "mains">      
+            <button  class = "heading" ion-button color="dark" full outline> {{data.name}}</button>
+            <ion-list >
+               <ion-item-sliding *ngFor="let product of data.products" >
+                  <ion-item class = "mains">
+                     <ion-thumbnail item-start (click) = "productDetails(product)">
+                        <img src="{{product.img}}">
+                     </ion-thumbnail>
+                     <h4 class = "prodName" (click) = "productDetails(product)">{{product.name}}</h4>
+                     <p>${{product.price}}</p>
+                     <div clear item-end>
+                        <button ion-button color="dark" (click)="addToCart(product)">+</button>
+                        <span class="counter">{{product.qty || 0}}</span>
+                        <button ion-button color="dark" (click)="deleteFromCart(product)">-</button>
+                     </div>
+                  </ion-item>
+               </ion-item-sliding>
+            </ion-list>
+         </ion-item>
+      </ion-item-sliding>
+   </ion-list>
+</ion-content>

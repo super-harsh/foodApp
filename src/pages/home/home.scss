@@ -1,0 +1,30 @@
+page-home {
+.center{
+		  margin-top: 75px;
+      
+        justify-content: center;
+        align-items: center;
+	}
+
+	.button{
+	
+  
+  letter-spacing: .05em;
+ 
+  background: #225556;
+  
+  cursor: pointer;
+	}
+
+	.body{
+	   
+	background: url("../../assets/imgs/bg.jpg");
+	-webkit-background-size:cover;
+	-moz-background-size: cover;
+	-o-background-size:cover;
+	background-size:cover;
+	
+	}
+
+
+}
